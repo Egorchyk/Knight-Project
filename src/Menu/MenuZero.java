@@ -26,7 +26,7 @@ public class MenuZero {
             case 1:
             case 2:
             case 3:
-                System.out.println("For Commit and Push");
+                System.out.println("For Commit and Push, Commit");
             case 4:
             case 5:
             case 6:
