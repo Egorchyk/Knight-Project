@@ -25,6 +25,8 @@ public class MenuZero {
 
         switch(menuPosition) {
             case 1:
+                FirstMenuPosition.firstMenuPosition();
+                break;
             case 2:
             case 3:
 

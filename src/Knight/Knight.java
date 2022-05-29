@@ -8,16 +8,18 @@ public class Knight {
     private int age;
     private int protection;
     private int damage;
-    private Armor armor;
-    private Weapon weapon;
+    private int weight;
+    private Armor armorKnight;
+    private Weapon weaponKnight;
 
-    public Knight(String name, int age, int protection, int damage, Armor armor, Weapon weapon) {
+    public Knight(String name, int age, int protection, int damage, int weight, Armor armorKnight, Weapon weaponKnight) {
         this.name = name;
         this.age = age;
         this.protection = protection;
         this.damage = damage;
-        this.armor = armor;
-        this.weapon = weapon;
+        this.weight = weight;
+        this.armorKnight = armorKnight;
+        this.weaponKnight = weaponKnight;
     }
 
     public String getName() {
@@ -52,19 +54,27 @@ public class Knight {
         this.damage = damage;
     }
 
-    public Armor getArmor() {
-        return armor;
+    public int getWeight() {
+        return weight;
     }
 
-    public void setArmor(Armor armor) {
-        this.armor = armor;
+    public void setWeight(int weight) {
+        this.weight = weight;
     }
 
-    public Weapon getWeapon() {
-        return weapon;
+    public Armor getArmorKnight() {
+        return armorKnight;
     }
 
-    public void setWeapon(Weapon weapon) {
-        this.weapon = weapon;
+    public void setArmorKnight(Armor armorKnight) {
+        this.armorKnight = armorKnight;
+    }
+
+    public Weapon getWeaponKnight() {
+        return weaponKnight;
+    }
+
+    public void setWeaponKnight(Weapon weaponKnight) {
+        this.weaponKnight = weaponKnight;
     }
 }

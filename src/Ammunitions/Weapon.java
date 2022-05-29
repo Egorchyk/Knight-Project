@@ -9,4 +9,12 @@ public class Weapon extends Ammunition {
         this.damage = damage;
         this.impactSpeed = impactSpeed;
     }
+
+    public int getImpactSpeed() {
+        return impactSpeed;
+    }
+
+    public int getDamage() {
+        return damage;
+    }
 }

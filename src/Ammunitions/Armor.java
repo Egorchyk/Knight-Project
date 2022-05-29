@@ -7,4 +7,8 @@ public class Armor extends Ammunition {
         super(name, price, weight);
         this.armor = armor;
     }
+
+    public int getArmor() {
+        return armor;
+    }
 }
