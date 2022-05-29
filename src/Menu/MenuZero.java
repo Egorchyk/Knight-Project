@@ -28,6 +28,8 @@ public class MenuZero {
                 FirstMenuPosition.firstMenuPosition();
                 break;
             case 2:
+                SecondMenuPosition.secondMenuPosition();
+                break;
             case 3:
 
             case 4:
