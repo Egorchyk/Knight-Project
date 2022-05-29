@@ -1,12 +1,15 @@
 package Menu;
 
 import Ammunitions.Ammunition;
+import Ammunitions.Armor;
+import Ammunitions.Weapon;
 import ObjectProject.ObjectArmor;
 import ObjectProject.ObjectWeapon;
 
-import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+
+import static ObjectProject.ObjectKnight.knight;
 
 public class FiveMenuPosition {
 
@@ -24,15 +27,15 @@ public class FiveMenuPosition {
             getArmorOrWeapon();
         }
 
-        ArrayList<Ammunition> weapons = new ArrayList<>();
-        ArrayList<Ammunition> armors = new ArrayList<>();
+        Ammunition[] weapons = new Weapon[5];
+        Ammunition[] armors = new Armor[5];
         switch (menuPosition) {
             case 1:
-                ObjectWeapon.getArrayListWeapon(weapons);
+                ObjectWeapon.getArrayWeapon(weapons);
                 menuSearch(weapons);
                 break;
             case 2:
-                ObjectArmor.getArrayListArmor(armors);
+                ObjectArmor.getArrayArmor(armors);
                 menuSearch(armors);
                 break;
             case 3:
@@ -44,7 +47,7 @@ public class FiveMenuPosition {
         }
     }
 
-    static void menuSearch(ArrayList<Ammunition> arrayList) {
+    static void menuSearch(Ammunition[] ammunition) {
         System.out.println("Выберите поле поиска:");
         System.out.println("1. Стоимость");
         System.out.println("2. Вес");
@@ -56,25 +59,20 @@ public class FiveMenuPosition {
             positionMenuSearch = scanner.nextInt();
         } catch (InputMismatchException e) {
             System.out.println("Можно вводить только числа\n");
-            menuSearch(arrayList);
+            menuSearch(ammunition);
         }
         switch (positionMenuSearch) {
-            case 1:
-                getSearchPrice(arrayList);
-                break;
-            case 2:
-                getSearchWeight(arrayList);
-                break;
-            case 3:
-                getArmorOrWeapon();
-                break;
-            default:
+            case 1 -> getSearchPrice(ammunition);
+            case 2 -> getSearchWeight(ammunition);
+            case 3 -> getArmorOrWeapon();
+            default -> {
                 System.out.println("Введеного номера нет в списке.\nПопробуйте еще раз.\n");
-                menuSearch(arrayList);
+                menuSearch(ammunition);
+            }
         }
     }
 
-    static void getSearchPrice(ArrayList<Ammunition> arrayList) {
+    static void getSearchPrice(Ammunition[] ammunition) {
         System.out.println("Минимальная стоимость: 0");
         System.out.println("Максимальная стоимость: 5");
         int price = 0;
@@ -83,22 +81,22 @@ public class FiveMenuPosition {
             price = scanner.nextInt();
         } catch (InputMismatchException e) {
             System.out.println("Введено недопустимое значение\n");
-            getSearchPrice(arrayList);
+            getSearchPrice(ammunition);
         }
         if (price < 0 || price > 5) {
             System.out.println("Введено недопустимое значение\n");
-            getSearchPrice(arrayList);
+            getSearchPrice(ammunition);
         } else {
-            for (int i = 0; i < arrayList.size(); i++) {
-                if (price == arrayList.get(i).getPrice()) {
-                    System.out.println(arrayList.get(i).getName() + ". Цена " + arrayList.get(i).getPrice());
-                    equipKnight(arrayList.get(i));
+            for (Ammunition value : ammunition) {
+                if (price == value.getPrice()) {
+                    System.out.println(value.getName() + ". Цена " + value.getPrice());
+                    equipKnight(value);
                 }
             }
         }
     }
 
-    static void getSearchWeight(ArrayList<Ammunition> arrayList) {
+    static void getSearchWeight(Ammunition[] ammunition) {
         System.out.println("Минимальный вес: 0");
         System.out.println("Максимальный вес: 5");
         int price = 0;
@@ -107,16 +105,16 @@ public class FiveMenuPosition {
             price = scanner.nextInt();
         } catch (InputMismatchException e) {
             System.out.println("Введено недопустимое значение\n");
-            getSearchPrice(arrayList);
+            getSearchPrice(ammunition);
         }
         if (price < 0 || price > 5) {
             System.out.println("Введено недопустимое значение\n");
-            getSearchPrice(arrayList);
+            getSearchPrice(ammunition);
         } else {
-            for (int i = 0; i < arrayList.size(); i++) {
-                if (price == arrayList.get(i).getWeight()) {
-                    System.out.println(arrayList.get(i).getName() + ". Вес " + arrayList.get(i).getWeight());
-                    equipKnight(arrayList.get(i));
+            for (Ammunition value : ammunition) {
+                if (price == value.getWeight()) {
+                    System.out.println(value.getName() + ". Вес " + value.getWeight());
+                    equipKnight(value);
                 }
             }
         }
@@ -135,16 +133,24 @@ public class FiveMenuPosition {
             System.out.println("Введено недопустимое значение\n");
         }
         switch (menuPosition) {
-            case 1:
-            case 2:
-                getArmorOrWeapon();
-                break;
-            case 3:
+            case 1 -> {
+                instOf(ammunition);
                 MenuZero.getMenu();
-                break;
-            default:
+            }
+            case 2 -> getArmorOrWeapon();
+            case 3 -> MenuZero.getMenu();
+            default -> {
                 System.out.println("Введеного номера нет в списке.\nПопробуйте еще раз.\n");
                 equipKnight(ammunition);
+            }
+        }
+    }
+    static void instOf(Ammunition ammunition) {
+        if (ammunition instanceof Weapon weapon) {
+            knight.setWeaponKnight(weapon);
+        } else {
+            Armor armor = (Armor) ammunition;
+            knight.setArmorKnight(armor);
         }
     }
 }

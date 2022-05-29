@@ -31,7 +31,8 @@ public class MenuZero {
                 SecondMenuPosition.secondMenuPosition();
                 break;
             case 3:
-
+                ThreeMenuPosition.threeMenuPosition();
+                break;
             case 4:
             case 5:
                 FiveMenuPosition.getArmorOrWeapon();

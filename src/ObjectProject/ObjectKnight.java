@@ -42,6 +42,7 @@ public class ObjectKnight {
         System.out.println("Оружие: " + knight.getWeaponKnight().getName());
         System.out.println("Броня: " + knight.getArmorKnight().getName());
     }
+
     public static void infoWeaponKnight() {
         String nameWeapon = knight.getWeaponKnight().getName();
         int damageWeapon = knight.getWeaponKnight().getDamage();
@@ -55,6 +56,7 @@ public class ObjectKnight {
         System.out.println("Вес: " + weightWeapon);
         System.out.println("Скорость удара " + impactSpeedWeapon);
     }
+
     public static void infoArmorKnight() {
         String nameArmor = knight.getArmorKnight().getName();
         int priceArmor = knight.getArmorKnight().getPrice();
@@ -65,5 +67,13 @@ public class ObjectKnight {
         System.out.println("Цена: " + priceArmor);
         System.out.println("Вес: " + weightArmor);
         System.out.println("Защита: " + armorArmor);
+    }
+
+    public static void equipKnightWeapon(Weapon weapon) {
+        knight.setWeaponKnight(weapon);
+    }
+
+    public static void equipKnightArmor(Armor armor) {
+        knight.setArmorKnight(armor);
     }
 }
