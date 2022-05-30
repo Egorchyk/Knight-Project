@@ -4,10 +4,10 @@ import Ammunitions.Armor;
 import Ammunitions.Weapon;
 
 public class Knight {
-    private String name;
-    private int age;
-    private int protection;
-    private int damage;
+    private final String name;
+    private final int age;
+    private final int protection;
+    private final int damage;
     private int weight;
     private Armor armorKnight;
     private Weapon weaponKnight;
@@ -26,33 +26,20 @@ public class Knight {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public int getAge() {
         return age;
     }
 
-    public void setAge(int age) {
-        this.age = age;
-    }
 
     public int getProtection() {
         return protection;
     }
 
-    public void setProtection(int protection) {
-        this.protection = protection;
-    }
 
     public int getDamage() {
         return damage;
     }
 
-    public void setDamage(int damage) {
-        this.damage = damage;
-    }
 
     public int getWeight() {
         return weight;

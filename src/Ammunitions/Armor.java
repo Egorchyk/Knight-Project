@@ -1,7 +1,7 @@
 package Ammunitions;
 
 public class Armor extends Ammunition {
-    private int armor;
+    private final int armor;
 
     public Armor(String name, int price, int weight, int armor) {
         super(name, price, weight);
@@ -10,5 +10,10 @@ public class Armor extends Ammunition {
 
     public int getArmor() {
         return armor;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + "; Броня = " + armor;
     }
 }

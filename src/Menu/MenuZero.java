@@ -23,27 +23,18 @@ public class MenuZero {
             getMenu();
         }
 
-        switch(menuPosition) {
-            case 1:
-                FirstMenuPosition.firstMenuPosition();
-                break;
-            case 2:
-                SecondMenuPosition.secondMenuPosition();
-                break;
-            case 3:
-                ThreeMenuPosition.threeMenuPosition();
-                break;
-            case 4:
-            case 5:
-                FiveMenuPosition.getArmorOrWeapon();
-                break;
-            case 6:
-                System.out.println("До новых встреч!");
-                break;
-            default:
+        switch (menuPosition) {
+            case 1 -> FirstMenuPosition.firstMenuPosition();
+            case 2 -> SecondMenuPosition.secondMenuPosition();
+            case 3 -> ThreeMenuPosition.threeMenuPosition();
+            case 4 -> FourMenuPosition.fourMenuPosition();
+            case 5 -> FiveMenuPosition.getArmorOrWeapon();
+            case 6 -> System.out.println("До новых встреч!");
+            default -> {
                 System.out.println("Выбранной позиции нет в меню.");
-                System.out.println("Попробуйте еще раз!\n" );
+                System.out.println("Попробуйте еще раз!\n");
                 getMenu();
+            }
         }
     }
 }

@@ -1,9 +1,9 @@
 package Ammunitions;
 
 public class Ammunition {
-    private String name;
-    private int price;
-    private int weight;
+    private final String name;
+    private final int price;
+    private final int weight;
 
     public Ammunition(String name, int price, int weight) {
         this.name = name;
@@ -21,5 +21,10 @@ public class Ammunition {
 
     public int getWeight() {
         return weight;
+    }
+
+    @Override
+    public String toString() {
+        return name + ", Цена = " + price + "; Вес = " + weight;
     }
 }
